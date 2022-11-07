@@ -1,0 +1,45 @@
+{
+  "name": "vendor_name/2022-aug-furniture-store-be",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Fatima Seghir",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Owen May",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Richard Bingham",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Henry Percy",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Pedro Nunes",
+      "email": "email@example.com"
+    }
+  ,
+    {
+      "name": "Carina Volkes",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Phone Naing",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Fsbe\\": "src/"
+    }
+  },
+  "require": {
+
+  }
+}
