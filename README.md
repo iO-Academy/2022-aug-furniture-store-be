@@ -1,2 +1,2 @@
-# year-cohort-projectName (eg: 22-jul-projectName)
+# 2022-aug-furniture-store-be
 project template repo
