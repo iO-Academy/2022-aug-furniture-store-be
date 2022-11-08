@@ -6,7 +6,7 @@ use Fsbe\DataAccess\Database;
 use Fsbe\Entities\Category;
 // TO DO: ensure namespaces, uses are correct
 
-class CategoryHydrator
+class                           CategoryHydrator
 {
     public static function hydrateFromDb(Database $db, int $id): Category
     {
