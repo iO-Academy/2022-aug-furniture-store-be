@@ -1,6 +1,8 @@
 <?php
+
 namespace Fsbe\Services;
 
+use Fsbe\DataAccess\CategoriesDAO;
 use Fsbe\DataAccess\Database;
 use Fsbe\DataAccess\CategoryDAO;
 use Fsbe\Entities\Category;
@@ -18,11 +20,19 @@ class CategoryService
         $this->db = Database::getInstance();
     }
 
+
+    /**
+     * @param int $id
+     * @return Category
+     */
     public function getCategory(int $id): Category
     {
         return CategoryDAO::fetch($this->db, $id);
     }
 
+    /**
+     * @return Categories
+     */
     public function getCategories(): Categories
     {
         return CategoriesDAO::fetch($this->db);

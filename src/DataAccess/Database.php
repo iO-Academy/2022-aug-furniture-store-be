@@ -3,7 +3,6 @@
 namespace Fsbe\DataAccess;
 
 class Database
-
 {
     private \PDO $pdo;
     private static ?Database $instance = null;
@@ -11,7 +10,7 @@ class Database
     private function __construct()
     {
         $host = 'db';
-        $db = 'furnituretest';
+        $db = 'mockdatabase';
         $user = 'root';
         $pass = 'password';
 
