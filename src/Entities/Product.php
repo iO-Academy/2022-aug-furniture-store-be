@@ -1,4 +1,5 @@
 <?php
+
 namespace Fsbe\Entities;
 
 class Product implements \JsonSerializable
