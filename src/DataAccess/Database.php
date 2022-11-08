@@ -3,7 +3,6 @@
 namespace Fsbe\DataAccess;
 
 class Database
-
 {
     private \PDO $pdo;
     private static ?Database $instance = null;
