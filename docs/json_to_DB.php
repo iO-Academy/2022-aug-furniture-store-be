@@ -40,12 +40,11 @@ for($i=1; $i < count($keys) + 1; $i++) {
 };
 
 // Categories Table
-$pdo->exec('DROP TABLE IF EXISTS `categories`;');
-
-$sqlCategories = 'CREATE TABLE `categories` (
+$sqlCategories = 'DROP TABLE IF EXISTS `categories`;
+    CREATE TABLE `categories` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `name` varchar(255) DEFAULT NULL,
-   PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;';
 
 $pdo->exec($sqlCategories);
@@ -60,9 +59,8 @@ VALUES (:id, :name);");
 }
 
 // Products Table
-$pdo->exec('DROP TABLE IF EXISTS `products`;');
-
-$sqlProducts = 'CREATE TABLE `products` (
+$sqlProducts = 'DROP TABLE IF EXISTS `products`;
+    CREATE TABLE `products` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `categoryID` int(11) unsigned NOT NULL,
     `width` int(11) unsigned DEFAULT NULL,
@@ -71,8 +69,8 @@ $sqlProducts = 'CREATE TABLE `products` (
     `price` float unsigned DEFAULT NULL,
     `related` int(11) unsigned DEFAULT NULL,
     `color` varchar(255) DEFAULT NULL,
-   PRIMARY KEY (`id`),
-   CONSTRAINT `fk_categories_products` FOREIGN KEY (`categoryID`) REFERENCES `categories`(`id`)
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_categories_products` FOREIGN KEY (`categoryID`) REFERENCES `categories`(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;';
 
 $pdo->exec($sqlProducts);
