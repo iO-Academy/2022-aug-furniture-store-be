@@ -1,6 +1,9 @@
 <?php
 
 namespace Fsbe\Entities;
+
+use JsonSerializable;
+
 class Categories implements JsonSerializable
 {
     private array $categories;
