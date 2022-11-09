@@ -38,7 +38,7 @@ To use this app you will require the following dependencies
 ### 3.2 Frontend
 This backend is to be used in conjunction with an existing front-end. If you wish to use this, navigate to 
 `https://github.com/iO-Academy/furniture-store-fe` and follow the instructions.
-The repo contains 6 branches, to use the API checkout to `story-2`.
+The repo contains six branches, to use the front-end with this API you need to checkout to branch `story-2`.
 
 ### 3.3 Database
 
@@ -52,7 +52,7 @@ To set the database up locally:
 
 1. Create a new database in your MySQL Database GUI called `furniture`
 2. In Terminal navigate to the repo and run the command `php docs/json_to_DB.php`
-3. You should now have 2 new tables in this database called `categories` and `products`
+3. You should now have two new tables in this database called `categories` and `products`
 ---
 
 ## 4. Using the API
