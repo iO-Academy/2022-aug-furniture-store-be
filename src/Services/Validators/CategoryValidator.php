@@ -15,6 +15,10 @@ class CategoryValidator
         return $category->getId();
          }, $categories);
 
-        return (bool)count($categoryIds);
+        if (in_array($catId, $categoryIds)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
