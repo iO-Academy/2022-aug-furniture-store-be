@@ -50,7 +50,8 @@ may need to update your local settings to connect to the database. If so complet
 
 To set the database up locally:
 
-1. Create a new database in your MySQL Database GUI called `furniture`
+1. Create a new database in your MySQL Database GUI called `furniture`. You may need to refresh the Database in your GUI
+to see the changes.
 2. In Terminal navigate to the repo and run the command `php docs/json_to_DB.php`
 3. You should now have two new tables in this database called `categories` and `products`
 ---
