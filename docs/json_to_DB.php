@@ -70,6 +70,7 @@ $sqlProducts = 'CREATE TABLE `products` (
     `height` int(11) unsigned DEFAULT NULL,
     `depth` int(11) unsigned DEFAULT NULL,
     `price` float unsigned DEFAULT NULL,
+    `stock` int(11) unsigned DEFAULT NULL,
     `related` int(11) unsigned DEFAULT NULL,
     `color` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`),
@@ -79,8 +80,8 @@ $sqlProducts = 'CREATE TABLE `products` (
 $pdo->exec($sqlProducts);
 
 foreach ($data as $row){
-    $sth = $pdo->prepare("INSERT INTO `products` (`category_id`, `width`, `height`, `depth`, `price`, `related`, `color`)
-VALUES (:category_id, :width, :height, :depth, :price, :related, :color);");
+    $sth = $pdo->prepare("INSERT INTO `products` (`category_id`, `width`, `height`, `depth`, `price`, `stock`, `related`, `color`)
+VALUES (:category_id, :width, :height, :depth, :price, :stock, :related, :color);");
     $category_id = $categories[$row['name']];
     $price = trim($row['price'], "£");
     $sth->bindParam(':category_id', $category_id);
@@ -88,6 +89,7 @@ VALUES (:category_id, :width, :height, :depth, :price, :related, :color);");
     $sth->bindParam(':height', $row['height']);
     $sth->bindParam(':depth', $row['depth']);
     $sth->bindParam(':price', $price);
+    $sth->bindParam(':stock', $row['stock']);
     $sth->bindParam(':related', $row['related']);
     $sth->bindParam(':color', $row['color']);
     $sth->execute();
