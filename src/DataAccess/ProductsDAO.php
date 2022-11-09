@@ -7,8 +7,8 @@ use Fsbe\Entities\Products;
 
 class ProductsDAO
 {
-    public static function fetch(Database $db): Products
+    public static function fetch(Database $db, int $category_id, Products $products): Products
     {
-        return ProductsHydrator::hydrateFromDb($db);
+        return ProductsHydrator::hydrateFromDb($db, $category_id, $products);
     }
 }

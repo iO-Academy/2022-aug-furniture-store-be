@@ -5,6 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header('Content-Type: application/json; charset=utf-8');
 
+use Fsbe\Entities\Products;
 use Fsbe\Services\Validators\CategoryValidator;
 
 if (!isset($_GET['catId']) || !CategoryValidator::validateCategory($_GET['catId'])) {
@@ -21,8 +22,9 @@ if (!isset($_GET['catId']) || !CategoryValidator::validateCategory($_GET['catId'
 }
 
 try {
+    $products = new Products();
     $productService = new Fsbe\Services\ProductService();
-    $products = $productService->getProducts();
+    $products = $productService->getProducts($products);
 
     $data = [
         "message" => "Successfully retrieved products",

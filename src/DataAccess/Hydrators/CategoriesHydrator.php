@@ -8,7 +8,7 @@ use Fsbe\Entities\Categories;
 
 class CategoriesHydrator
 {
-    public static function hydrateFromDb(Database $db): Categories
+    public static function hydrateFromDb(Database $db, Categories $categories): Categories
     {
         $sql = 'SELECT `products`.`category_id` As `id`, `categories`.`name`, COUNT(`category_id`) AS `products` '
                . 'FROM `products` '
@@ -23,8 +23,6 @@ class CategoriesHydrator
         $statement->setFetchMode(\PDO::FETCH_CLASS, Category::class);
 
         $result = $statement->fetchAll();
-
-        $categories = new Categories();
 
         $categories->setCategories($result);
 

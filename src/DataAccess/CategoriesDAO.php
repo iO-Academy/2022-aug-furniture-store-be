@@ -7,8 +7,8 @@ use Fsbe\DataAccess\Hydrators\CategoriesHydrator;
 
 class CategoriesDAO
 {
-    public static function fetch(Database $db): Categories
+    public static function fetch(Database $db, Categories $categories): Categories
     {
-        return CategoriesHydrator::hydrateFromDb($db);
+        return CategoriesHydrator::hydrateFromDb($db, $categories);
     }
 }
