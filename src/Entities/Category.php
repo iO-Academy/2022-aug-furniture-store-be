@@ -17,14 +17,6 @@ class Category implements \JsonSerializable
     }
 
     /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return string
      */
     public function getName(): string
@@ -33,27 +25,11 @@ class Category implements \JsonSerializable
     }
 
     /**
-     * @param string $name
-     */
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    /**
      * @return int
      */
     public function getProducts(): int
     {
         return $this->products;
-    }
-
-    /**
-     * @param int $products
-     */
-    public function setProducts(int $products): void
-    {
-        $this->products = $products;
     }
 
     public function jsonSerialize(): array
