@@ -1,4 +1,5 @@
 <?php
+
 // Connect to DB
 $host = 'db';
 $db = 'furniture';
