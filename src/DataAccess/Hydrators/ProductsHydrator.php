@@ -10,11 +10,15 @@ class ProductsHydrator
 {
     public static function hydrateFromDb(Database $db, int $category_id, Products $products): Products
     {
-        $sql = 'SELECT `id`, `price`, `stock`, `color` '
+        $sql = 'SELECT * '
             . 'FROM `products`'
+            . 'LEFT JOIN `categories` on `categories`.`id` = `products`.`category_id`'
             . 'WHERE `category_id` = :category_id; ';
+
         $stmt = $db->getConnection()->prepare($sql);
+
         $stmt->bindParam(':category_id', $category_id);
+
         $stmt->execute();
 
         $stmt->setFetchMode(\PDO::FETCH_CLASS, Product::class);

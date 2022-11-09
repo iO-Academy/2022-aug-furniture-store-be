@@ -25,8 +25,21 @@ class ProductService
         return ProductDAO::fetch($this->db, $id);
     }
 
-    public function getProducts(int $category_id, Products $products): Products
+    public function getProducts(int $category_id, Products $products): array
     {
-        return ProductsDAO::fetch($this->db, $category_id, $products);
+        $productsObj = ProductsDAO::fetch($this->db, $category_id, $products);
+
+        $fullArray = $productsObj->getProducts();
+
+        $finalArray = array_map(function($product) {
+            return [
+                "id" => $product->getId(),
+                "price" => $product->getPrice(),
+                "stock" => $product->getStock(),
+                "color" => $product->getColor()
+            ];
+        }, $fullArray);
+
+        return $finalArray;
     }
 }

@@ -27,10 +27,9 @@ try {
     $products = new Products();
     $productService = new ProductService();
     $products = $productService->getProducts($_GET['cat'], $products);
-
     $data = [
         "message" => "Successfully retrieved products",
-        "data" => $products->getProducts()
+        "data" => $products
     ];
 } catch (InvalidArgumentException $e) {
     http_response_code(400);
