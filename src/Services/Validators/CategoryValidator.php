@@ -11,9 +11,13 @@ class CategoryValidator
         $categoryService = new CategoryService();
         $categories = $categoryService->getCategories();
 
-        $filtered = array_filter($categories, function($category) use ($catId) {
+        $categoryId = array_filter($categories, function($category) use ($catId) {
                 return $category->getId() === $catId;
         });
-        return (bool)count($filtered);
+
+
+        $categoryId = array_map(function)
+
+        return (bool)count($categoryId);
     }
 }
