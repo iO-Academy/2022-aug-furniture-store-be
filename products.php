@@ -9,7 +9,6 @@ use Fsbe\Entities\Products;
 use Fsbe\Services\Validators\CategoryValidator;
 use Fsbe\Services\ProductService;
 
-//print_r($_GET);
 if (!isset($_GET['cat']) || !CategoryValidator::validateCategory($_GET['cat'])) {
     http_response_code(400);
 
