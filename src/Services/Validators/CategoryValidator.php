@@ -10,7 +10,6 @@ class CategoryValidator
     {
         $categoryService = new CategoryService();
         $categories = $categoryService->getCategories();
-        $count = count($categories->getCategories()); // change to check for id, include try catch here
 
         $filtered = array_filter($categories, function($category) use ($catId) {
                 return $category->getId() === $catId;
