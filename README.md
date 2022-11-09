@@ -31,7 +31,7 @@ To use this app you will require the following dependencies
 
 1. Clone this repo: `git clone git@github.com:iO-Academy/2022-aug-furniture-store-be.git`
 2. Navigate into the newly created repo: `cd 2022-aug-furniture-store-be`
-3. From the root of the project run: `composer dunp-autoload`
+3. From the root of the project run: `composer install`
 
 ### 3.2 Frontend
 This backend is to be used in conjunction with this [front-end](https://github.com/iO-Academy/furniture-store-fe
