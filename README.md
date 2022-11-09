@@ -1,4 +1,3 @@
-
 # Furniture Store OOP API
 
 ## 1. About
@@ -16,8 +15,8 @@ This project was designed to test our knowledge pertaining to the following:
 + Agile best practices (SCRUM)
 + Git workflow and best practices as a development team
 ---
-## 2. Getting Started
 
+## 2. Getting Started
 ### Dependencies
 To use this app you will require the following dependencies
 
@@ -26,6 +25,7 @@ To use this app you will require the following dependencies
     - Composer version 1+
     - PHPUnit version 6.5+
 ---
+
 ## 3. Install and Setup
 ### 3.1 Backend
 
@@ -51,8 +51,8 @@ To set the database up locally:
 2. In Terminal navigate to the repo and run the command `php docs/json_to_DB.php`
 3. You should now have 2 new tables in this database called `categories` and `products`
 ---
-## 4. Using the API
 
+## 4. Using the API
 This API only supports GET requests.
 ### Return all product categories
 
@@ -100,8 +100,8 @@ This API only supports GET requests.
 
     * **Code:** 500 SERVER ERROR <br />
       **Content:** `{"message": "Unexpected error", "data": []}`
-
 ---
+
 ## Authors
 
 Fatima Seghir - [@fatimaseghir](https://github.com/fatimaseghir)
