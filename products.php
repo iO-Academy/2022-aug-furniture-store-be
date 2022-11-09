@@ -7,8 +7,9 @@ header('Content-Type: application/json; charset=utf-8');
 
 use Fsbe\Entities\Products;
 use Fsbe\Services\Validators\CategoryValidator;
+use Fsbe\Services\ProductService;
 
-if (!isset($_GET['catId']) || !CategoryValidator::validateCategory($_GET['catId'])) {
+if (!isset($_GET['cat']) || !CategoryValidator::validateCategory($_GET['cat'])) {
     http_response_code(400);
 
     $data = [
@@ -23,12 +24,11 @@ if (!isset($_GET['catId']) || !CategoryValidator::validateCategory($_GET['catId'
 
 try {
     $products = new Products();
-    $productService = new Fsbe\Services\ProductService();
-    $products = $productService->getProducts($products);
-
+    $productService = new ProductService();
+    $products = $productService->getProducts($_GET['cat'], $products);
     $data = [
         "message" => "Successfully retrieved products",
-        "data" => $products->getProducts()
+        "data" => $products
     ];
 } catch (InvalidArgumentException $e) {
     http_response_code(400);
