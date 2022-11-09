@@ -15,12 +15,6 @@ class CategoryValidator
         return $category->getId();
          }, $categories);
 
-        if (in_array($catId, $categoryIds)) {
-        echo 'The id is valid';
-        } else {
-            echo 'The id is invalid';
-        }
-
         return (bool)count($categoryIds);
     }
 }
