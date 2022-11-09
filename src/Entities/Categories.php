@@ -21,7 +21,9 @@ class Categories implements JsonSerializable
      */
     public function setCategories(array $categories): void
     {
-        $this->categories = $categories;
+        foreach ($categories as $category) {
+            $this->categories[] = $category;
+        }
     }
 
     public function jsonSerialize(): array
