@@ -64,29 +64,31 @@ VALUES (:id, :name);");
 // Products Table
 $sqlProducts = 'CREATE TABLE `products` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-    `categoryID` int(11) unsigned NOT NULL,
+    `category_id` int(11) unsigned NOT NULL,
     `width` int(11) unsigned DEFAULT NULL,
     `height` int(11) unsigned DEFAULT NULL,
     `depth` int(11) unsigned DEFAULT NULL,
     `price` float unsigned DEFAULT NULL,
+    `stock` int(11) unsigned DEFAULT NULL,
     `related` int(11) unsigned DEFAULT NULL,
     `color` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`),
-    CONSTRAINT `fk_categories_products` FOREIGN KEY (`categoryID`) REFERENCES `categories`(`id`)
+    CONSTRAINT `fk_categories_products` FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;';
 
 $pdo->exec($sqlProducts);
 
 foreach ($data as $row){
-    $sth = $pdo->prepare("INSERT INTO `products` (`categoryID`, `width`, `height`, `depth`, `price`, `related`, `color`)
-VALUES (:categoryID, :width, :height, :depth, :price, :related, :color);");
-    $categoryID = $categories[$row['name']];
+    $sth = $pdo->prepare("INSERT INTO `products` (`category_id`, `width`, `height`, `depth`, `price`, `stock`, `related`, `color`)
+VALUES (:category_id, :width, :height, :depth, :price, :stock, :related, :color);");
+    $category_id = $categories[$row['name']];
     $price = trim($row['price'], "£");
-    $sth->bindParam(':categoryID', $categoryID);
+    $sth->bindParam(':category_id', $category_id);
     $sth->bindParam(':width', $row['width']);
     $sth->bindParam(':height', $row['height']);
     $sth->bindParam(':depth', $row['depth']);
     $sth->bindParam(':price', $price);
+    $sth->bindParam(':stock', $row['stock']);
     $sth->bindParam(':related', $row['related']);
     $sth->bindParam(':color', $row['color']);
     $sth->execute();
