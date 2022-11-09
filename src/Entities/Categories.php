@@ -6,7 +6,7 @@ use JsonSerializable;
 
 class Categories implements JsonSerializable
 {
-    private array $categories;
+    private array $categories = [];
 
     /**
      * @return array
