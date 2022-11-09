@@ -32,6 +32,9 @@ class Category implements \JsonSerializable
         return $this->products;
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize(): array
     {
         return [

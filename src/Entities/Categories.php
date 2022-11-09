@@ -26,6 +26,9 @@ class Categories implements JsonSerializable
         }
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize(): array
     {
         return $this->categories;

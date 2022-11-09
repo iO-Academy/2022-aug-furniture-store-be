@@ -7,6 +7,11 @@ use Fsbe\Entities\Category;
 
 class CategoryHydrator
 {
+    /**
+     * @param Database $db
+     * @param int $id
+     * @return Category
+     */
     public static function hydrateFromDb(Database $db, int $id): Category
     {
         $sql = 'SELECT `id`, `name`, `products` '

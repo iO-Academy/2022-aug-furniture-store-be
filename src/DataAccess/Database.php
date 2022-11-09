@@ -29,6 +29,9 @@ class Database
         }
     }
 
+    /**
+     * @return Database
+     */
     public static function getInstance(): Database
     {
         if (!self::$instance)
@@ -39,11 +42,19 @@ class Database
         return self::$instance;
     }
 
+    /**
+     * @return \PDO
+     */
     public function getConnection(): \PDO
     {
         return $this->pdo;
     }
 
+    /**
+     * @param string $sql
+     * @param array $values
+     * @return array
+     */
     public function fetch(string $sql, array $values = []): array
     {
         $statement = $this->pdo->prepare($sql);
@@ -53,6 +64,11 @@ class Database
         return $statement->fetch();
     }
 
+    /**
+     * @param string $sql
+     * @param array $values
+     * @return array
+     */
     public function fetchAll(string $sql, array $values = []): array
     {
         $statement = $this->pdo->prepare($sql);
