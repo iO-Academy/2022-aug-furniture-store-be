@@ -21,4 +21,5 @@ try {
         "data"=> []
     ];
 }
+
 echo json_encode($responseData, true);
