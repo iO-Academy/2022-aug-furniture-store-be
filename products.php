@@ -6,6 +6,20 @@ header("Access-Control-Allow-Origin: http://localhost:3000");
 header('Content-Type: application/json; charset=utf-8');
 
 use Fsbe\Entities\Products;
+use Fsbe\Services\Validators\CategoryValidator;
+
+if (!isset($_GET['catId']) || !CategoryValidator::validateCategory($_GET['catId'])) {
+    http_response_code(400);
+
+    $data = [
+        "message" => "Invalid category id",
+        "data" => []
+    ];
+
+    echo json_encode($data, true);
+
+    exit;
+}
 
 try {
     $products = new Products();
