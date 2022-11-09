@@ -39,9 +39,12 @@ for($i=1; $i < count($keys) + 1; $i++) {
     $categories[$keys[$i-1]] = $i;
 };
 
+// Delete Tables to clean DB
+$sqlDelete = 'DROP TABLE IF EXISTS `products`; DROP TABLE IF EXISTS `categories`;';
+$pdo->exec($sqlDelete);
+
 // Categories Table
-$sqlCategories = 'DROP TABLE IF EXISTS `categories`;
-    CREATE TABLE `categories` (
+$sqlCategories = 'CREATE TABLE `categories` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `name` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id`)
@@ -59,8 +62,7 @@ VALUES (:id, :name);");
 }
 
 // Products Table
-$sqlProducts = 'DROP TABLE IF EXISTS `products`;
-    CREATE TABLE `products` (
+$sqlProducts = 'CREATE TABLE `products` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `categoryID` int(11) unsigned NOT NULL,
     `width` int(11) unsigned DEFAULT NULL,
