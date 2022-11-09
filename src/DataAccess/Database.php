@@ -10,7 +10,7 @@ class Database
     private function __construct()
     {
         $host = 'db';
-        $db = 'furnituretest';
+        $db = 'furniture';
         $user = 'root';
         $pass = 'password';
 
