@@ -36,13 +36,14 @@ To use this app you will require the following dependencies
 3. From the root of the project run: `composer install`
 
 ### 3.2 Frontend
-This backend is to be used in conjunction with this [front-end](https://github.com/iO-Academy/furniture-store-fe
-) in the `story-2` branch.
+This backend is to be used in conjunction with an existing front-end. If you wish to use this, navigate to 
+`https://github.com/iO-Academy/furniture-store-fe` and follow the instructions.
+The repo contains 6 branches, to use the API checkout to `story-2`.
 
 ### 3.3 Database
 
 This project was built within a docker environment with a custom configuration for the database connection. As such you
-will need to complete the following within `2022-aug-furniture-store-be`:
+may need to update your local settings to connect to the database. If so complete the following within `2022-aug-furniture-store-be`:
 
 1. Navigate to `docs/json_toDB.php` and change `$host = 'db'` to `$host = '127.0.0.1'`
 2. Then navigate to `src/DataAccess/Database.php` and change `$host = 'db'` to `$host = '127.0.0.1'`
@@ -106,16 +107,16 @@ This API only supports GET requests.
 
 ## Authors
 
+Carina Volkes - [@Carinav](https://github.com/Carinav)
+
 Fatima Seghir - [@fatimaseghir](https://github.com/fatimaseghir)
-
-Owen May - [@O-MAY](https://github.com/O-MAY)
-
-Richard Bingham - [@RBingham99](https://github.com/RBingham99)
 
 Henry Percy - [@henryppercy](https://github.com/henryppercy)
 
+Owen May (Scrum Master) - [@O-MAY](https://github.com/O-MAY)
+
 Pedro Nunes- [@TherealGuah](https://github.com/TherealGuah)
 
-Carina Volkes - [@Carinav](https://github.com/Carinav)
-
 Phone Naing - [@PNaing107](https://github.com/PNaing107)
+
+Richard Bingham - [@RBingham99](https://github.com/RBingham99)
