@@ -1,4 +1,5 @@
 <?php
+
 namespace Fsbe\Services;
 
 use Fsbe\DataAccess\Database;
@@ -24,8 +25,8 @@ class ProductService
         return ProductDAO::fetch($this->db, $id);
     }
 
-    public function getProducts(): Products
+    public function getProducts(int $category_id, Products $products): Products
     {
-        return ProductsDAO::fetch($this->db);
+        return ProductsDAO::fetch($this->db, $category_id, $products);
     }
 }

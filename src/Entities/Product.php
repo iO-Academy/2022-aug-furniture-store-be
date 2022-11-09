@@ -5,7 +5,7 @@ namespace Fsbe\Entities;
 class Product implements \JsonSerializable
 {
     private int $id;
-    private int $categoryId;
+    private int $category_id;
     private string $name;
     private int $width;
     private int $height;
@@ -13,7 +13,7 @@ class Product implements \JsonSerializable
     private float $price;
     private int $stock;
     private int $related;
-    private string $colour;
+    private string $color;
 
     /**
      * @return int
@@ -34,17 +34,17 @@ class Product implements \JsonSerializable
     /**
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategory_id(): int
     {
-        return $this->categoryId;
+        return $this->category_id;
     }
 
     /**
-     * @param int $categoryId
+     * @param int $category_id
      */
-    public function setCategoryId(int $categoryId): void
+    public function setCategory_id(int $category_id): void
     {
-        $this->categoryId = $categoryId;
+        $this->category_id = $category_id;
     }
 
     /**
@@ -162,24 +162,24 @@ class Product implements \JsonSerializable
     /**
      * @return string
      */
-    public function getColour(): string
+    public function getColor(): string
     {
-        return $this->colour;
+        return $this->color;
     }
 
     /**
-     * @param string $colour
+     * @param string $color
      */
-    public function setColour(string $colour): void
+    public function setColor(string $color): void
     {
-        $this->colour = $colour;
+        $this->color = $color;
     }
 
     public function jsonSerialize(): array
     {
         return [
             'id' => $this->getId(),
-            'categoryId' => $this->getCategoryId(),
+            'category_id' => $this->getCategory_id(),
             'name' => $this->getName(),
             'width' => $this->getWidth(),
             'height' => $this->getHeight(),
@@ -187,7 +187,7 @@ class Product implements \JsonSerializable
             'price' => $this->getPrice(),
             'stock' => $this->getStock(),
             'related' => $this->getRelated(),
-            'colour' => $this->getColour()
+            'color' => $this->getColor()
         ];
     }
 }
