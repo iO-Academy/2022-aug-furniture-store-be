@@ -22,7 +22,7 @@ This project was designed to test our knowledge pertaining to the following:
 ### Dependencies
 To use this app you will require the following dependencies
 
-    - PHP version 7.0.0+, 
+    - PHP version 7.4.0+, 
     - MySQL version 5.6 + 
     - Composer version 1+
     - PHPUnit version 6.5+
