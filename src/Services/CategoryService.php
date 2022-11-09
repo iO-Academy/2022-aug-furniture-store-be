@@ -23,8 +23,8 @@ class CategoryService
     /**
      * @return Categories
      */
-    public function getCategories(): Categories
+    public function getCategories(Categories $categories): Categories
     {
-        return CategoriesDAO::fetch($this->db);
+        return CategoriesDAO::fetch($this->db, $categories);
     }
 }
