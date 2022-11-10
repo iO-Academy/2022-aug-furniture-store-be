@@ -36,16 +36,16 @@ To use this app you will require the following dependencies
 3. From the root of the project run: `composer install`
 
 ### 3.2 Frontend
-This backend is to be used in conjunction with an existing front-end. If you wish to use this, navigate to 
+This backend is to be used in conjunction with an existing front-end. If you wish to use this, navigate to
 `https://github.com/iO-Academy/furniture-store-fe` and follow the instructions.
-The repo contains six branches, to use the front-end with this API you need to checkout to branch `story-2`.
+The repo contains six branches, to use the front-end with this API you need to checkout to branch `story-3`.
 
 ### 3.3 Database
 
 This project was built within a docker environment with a custom configuration for the database connection. As such you
 may need to update your local settings to connect to the database. If so complete the following within `2022-aug-furniture-store-be`:
 
-1. Navigate to `docs/json_toDB.php` and change `$host = 'db'` to `$host = '127.0.0.1'`
+1. Navigate to `docs/json_to_DB.php` and change `$host = 'db'` to `$host = '127.0.0.1'`
 2. Then navigate to `src/DataAccess/Database.php` and change `$host = 'db'` to `$host = '127.0.0.1'`
 
 To set the database up locally:
@@ -104,6 +104,68 @@ This API only supports GET requests.
     * **Code:** 500 SERVER ERROR <br />
       **Content:** `{"message": "Unexpected error", "data": []}`
 ---
+
+### Return all products in a category
+
+* **URL**
+
+  /products.php
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  **Required:**
+
+  `cat` - category ID for the required products
+
+  **Optional:**
+
+  `currency` - currency unit to provide price in. Choose from: `GBP`,`USD`,`EUR`,`YEN`. Default is `GBP`  
+  `instockonly` - `boolean` choose to only return in-stock products. Default is `0`
+
+  **Example:**
+
+  `/products.php?cat=2&currency=GBP&instockonly=0`
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+  ```json
+  {
+    "message": "Successfully retrieved products",
+    "data":
+    [
+        {
+          "id": 1,
+          "price": "48.61",
+          "stock": 8,
+          "color": "Teal"
+        },
+        {
+          "id": 2,
+          "price": "182.08",
+          "stock": 2,
+          "color": "Green"
+        }
+    ]
+  }
+  ```
+
+* **Error Response:**
+
+    * **Code:** 400 BAD REQUEST <br />
+      **Content:** `{"message": "Invalid category id", "data": []}`
+
+    * **Code:** 400 BAD REQUEST <br />
+      **Content:** `{"message": "Invalid currency", "data": []}`
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error", "data": []}`
 
 ## Authors
 
