@@ -4,6 +4,7 @@ namespace Fsbe\Services;
 
 use Fsbe\DataAccess\Database;
 use Fsbe\DataAccess\ProductsDAO;
+use Fsbe\DataAccess\ProductDAO;
 use Fsbe\Entities\Product;
 use Fsbe\Entities\Products;
 
@@ -21,7 +22,7 @@ class ProductService
 
     public function getProduct(int $id, Product $product): array
     {
-        $productObj = ProductsDAO::fetchProduct($this->db, $id, $product);
+        $productObj = ProductDAO::fetchProduct($this->db, $id, $product);
         return [
             "categoryId" => $productObj->getCategory_id(),
             "width" => $productObj->getWidth(),
