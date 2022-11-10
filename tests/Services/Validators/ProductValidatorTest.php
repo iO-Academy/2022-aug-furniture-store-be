@@ -32,4 +32,14 @@ class ProductValidatorTest extends TestCase
 
         $this->assertEquals(false, $actual);
     }
+
+    public function testValidateProduct_GivenStringThrowsError()
+    {
+        $mockProductOne = $this->createMock(Product::class);
+        $mockProductOne->method('getId')
+            ->willReturn(1);
+        $Products = [$mockProductOne];
+        $this->expectException(\TypeError::class);
+        $actual = \Fsbe\Services\Validators\ProductValidator::validateProduct('HelloWorld', $Products);
+    }
 }

@@ -45,7 +45,7 @@ class ProductService
 
             return [
                 "id" => $product->getId(),
-                "price" => number_format($product->getPrice(),2,'.',''),
+                "price" => number_format($product->getPrice(), 2, '.', ''),
                 "stock" => $product->getStock(),
                 "color" => $product->getColor()
             ];
