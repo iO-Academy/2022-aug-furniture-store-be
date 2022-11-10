@@ -6,7 +6,7 @@ use JsonSerializable;
 
 class Categories implements JsonSerializable
 {
-    private array $categories;
+    private array $categories = [];
 
     /**
      * @return array
@@ -21,9 +21,14 @@ class Categories implements JsonSerializable
      */
     public function setCategories(array $categories): void
     {
-        $this->categories = $categories;
+        foreach ($categories as $category) {
+            $this->categories[] = $category;
+        }
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize(): array
     {
         return $this->categories;

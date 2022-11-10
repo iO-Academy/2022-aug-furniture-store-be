@@ -20,16 +20,6 @@ class CategoryService
         $this->db = Database::getInstance();
     }
 
-
-    /**
-     * @param int $id
-     * @return Category
-     */
-    public function getCategory(int $id): Category
-    {
-        return CategoryDAO::fetch($this->db, $id);
-    }
-
     /**
      * @return Categories
      */

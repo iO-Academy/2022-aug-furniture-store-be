@@ -8,6 +8,11 @@ use Fsbe\Entities\Categories;
 
 class CategoriesHydrator
 {
+    /**
+     * @param Database $db
+     * @param Categories $categories
+     * @return Categories
+     */
     public static function hydrateFromDb(Database $db, Categories $categories): Categories
     {
         $sql = 'SELECT `products`.`category_id` As `id`, `categories`.`name`, COUNT(`category_id`) AS `products` '
