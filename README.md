@@ -117,18 +117,11 @@ This API only supports GET requests.
 
 * **URL Params**
 
-  **Required:**
-
   `cat` - category ID for the required products
-
-  **Optional:**
-
-  `currency` - currency unit to provide price in. Choose from: `GBP`,`USD`,`EUR`,`YEN`. Default is `GBP`  
-  `instockonly` - `boolean` choose to only return in-stock products. Default is `0`
 
   **Example:**
 
-  `/products.php?cat=2&currency=GBP&instockonly=0`
+  `/products.php?cat=2`
 
 * **Success Response:**
 
@@ -163,6 +156,60 @@ This API only supports GET requests.
 
     * **Code:** 400 BAD REQUEST <br />
       **Content:** `{"message": "Invalid currency", "data": []}`
+
+    * **Code:** 500 SERVER ERROR <br />
+      **Content:** `{"message": "Unexpected error", "data": []}`
+
+### Return all details about a specific product
+
+* **URL**
+
+  /product.php
+
+* **Method:**
+
+  `GET`
+
+* **URL Params**
+
+  `id` - product ID for the requested product
+
+  **Example:**
+
+  `/product.php?id=2`
+
+* **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** <br />
+
+  ```json
+  {
+    "message": "Successfully retrieved product",
+    "data":
+      {
+        "categoryId": 2,
+        "width": 1517,
+        "height": 2040,
+        "depth": 1445,
+        "price": "48.61",
+        "stock": 8,
+        "related": 525,
+        "color": "Teal"
+      }
+  }
+  ```
+
+* **Error Response:**
+
+    * **Code:** 400 BAD REQUEST <br />
+      **Content:** `{"message": "Invalid product id", "data": []}`
+
+    * **Code:** 400 BAD REQUEST <br />
+      **Content:** `{"message": "Invalid currency", "data": []}`
+
+    * **Code:** 400 BAD REQUEST <br />
+      **Content:** `{"message": "Invalid unit of measure", "data": []}`
 
     * **Code:** 500 SERVER ERROR <br />
       **Content:** `{"message": "Unexpected error", "data": []}`
