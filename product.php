@@ -10,12 +10,10 @@ use Fsbe\Entities\Products;
 use Fsbe\Services\ProductService;
 use Fsbe\Services\Validators\ProductValidator;
 
-
 $products = new Products();
 $productService = new ProductService();
 $productsArray = $productService->getAllProducts($products);
-//var_dump($productsArray);
-// -- try catch inserted
+
 if (!isset($_GET['id']) || !ProductValidator::validateProduct($_GET['id'], $productsArray)) {
     http_response_code(400);
 
@@ -28,8 +26,6 @@ if (!isset($_GET['id']) || !ProductValidator::validateProduct($_GET['id'], $prod
 
     exit;
 }
-
-// --- try catch inserted finishes here!!!
 
 try {
     $product = new Product();

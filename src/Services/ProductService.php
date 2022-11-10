@@ -62,7 +62,3 @@ class ProductService
         return $fullArray;
     }
 }
-
-
-
-//-> DAO -> Hydrator(remove where]
