@@ -5,11 +5,18 @@ require __DIR__ . '/vendor/autoload.php';
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header('Content-Type: application/json; charset=utf-8');
 
+use Fsbe\Entities\Categories;
 use Fsbe\Entities\Products;
+use Fsbe\Services\CategoryService;
 use Fsbe\Services\Validators\CategoryValidator;
 use Fsbe\Services\ProductService;
 
-if (!isset($_GET['cat']) || !CategoryValidator::validateCategory($_GET['cat'])) {
+$categories = new Categories();
+$categoryService = new CategoryService();
+$categories = $categoryService->getCategories($categories);
+$categoriesArray = $categories->getCategories();
+
+if (!isset($_GET['cat']) || !CategoryValidator::validateCategory($_GET['cat'], $categoriesArray)) {
     http_response_code(400);
 
     $data = [
