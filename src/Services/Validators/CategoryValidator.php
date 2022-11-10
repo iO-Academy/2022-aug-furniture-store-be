@@ -2,9 +2,6 @@
 
 namespace Fsbe\Services\Validators;
 
-use Fsbe\Entities\Categories;
-use Fsbe\Services\CategoryService;
-
 class CategoryValidator
 {
     public static function validateCategory(int $catId, array $categoriesArray): bool

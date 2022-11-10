@@ -52,4 +52,13 @@ class ProductService
 
         return $finalArray;
     }
+
+    public function getAllProducts(Products $products): array
+    {
+        $productsObj = ProductsDAO::fetchAllProducts($this->db, $products);
+
+        $fullArray = $productsObj->getProducts();
+
+        return $fullArray;
+    }
 }
