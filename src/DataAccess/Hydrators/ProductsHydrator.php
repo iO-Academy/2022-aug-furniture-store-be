@@ -10,7 +10,7 @@ class ProductsHydrator
 {
     public static function hydrateFromDb(Database $db, int $category_id, Products $products): Products
     {
-        $sql = 'SELECT `products`.`category_id` As `id`, `category_id`, `width`, `height`, `depth`, `price`, `stock`, `related` `color` '
+        $sql = 'SELECT `products`.`category_id` As `id`, `category_id`, `width`, `height`, `depth`, `price`, `stock`, `related`, `color` '
             . 'FROM `products`'
             . 'LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`'
             . 'WHERE `category_id` = :category_id; ';
