@@ -3,8 +3,8 @@
 namespace Fsbe\Services;
 
 use Fsbe\DataAccess\Database;
-use Fsbe\DataAccess\ProductDAO;
 use Fsbe\DataAccess\ProductsDAO;
+use Fsbe\DataAccess\ProductDAO;
 use Fsbe\Entities\Product;
 use Fsbe\Entities\Products;
 
@@ -20,9 +20,19 @@ class ProductService
         $this->db = Database::getInstance();
     }
 
-    public function getProduct(int $id): Product
+    public function getProduct(int $id, Product $product): array
     {
-        return ProductDAO::fetch($this->db, $id);
+        $productObj = ProductDAO::fetchProduct($this->db, $id, $product);
+        return [
+            "categoryId" => $productObj->getCategory_id(),
+            "width" => $productObj->getWidth(),
+            "height" => $productObj->getHeight(),
+            "depth" => $productObj->getDepth(),
+            "price" => $productObj->getPrice(),
+            "stock"=> $productObj->getStock(),
+            "related" => $productObj->getRelated(),
+            "color" => $productObj->getColor()
+        ];
     }
 
     public function getProducts(int $category_id, Products $products): array
@@ -32,14 +42,24 @@ class ProductService
         $fullArray = $productsObj->getProducts();
 
         $finalArray = array_map(function($product) {
+
             return [
                 "id" => $product->getId(),
-                "price" => $product->getPrice(),
+                "price" => number_format($product->getPrice(), 2, '.', ''),
                 "stock" => $product->getStock(),
                 "color" => $product->getColor()
             ];
         }, $fullArray);
 
         return $finalArray;
+    }
+
+    public function getAllProducts(Products $products): array
+    {
+        $productsObj = ProductsDAO::fetchAllProducts($this->db, $products);
+
+        $fullArray = $productsObj->getProducts();
+
+        return $fullArray;
     }
 }

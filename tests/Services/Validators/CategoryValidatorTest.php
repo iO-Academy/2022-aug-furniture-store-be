@@ -32,4 +32,15 @@ class CategoryValidatorTest extends TestCase
 
         $this->assertEquals(false, $actual);
     }
+
+    public function testValidateCategory_GivenStringThrowsError()
+    {
+        $mockCategoryOne = $this->createMock(Category::class);
+        $mockCategoryOne->method('getId')
+            ->willReturn(1);
+        $categories = [$mockCategoryOne];
+        $this->expectException(\TypeError::class);
+        $actual = \Fsbe\Services\Validators\CategoryValidator::validateCategory('HelloBath', $categories);
+
+    }
 }
