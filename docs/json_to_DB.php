@@ -69,7 +69,7 @@ $sqlProducts = 'CREATE TABLE `products` (
     `width` int(11) unsigned DEFAULT NULL,
     `height` int(11) unsigned DEFAULT NULL,
     `depth` int(11) unsigned DEFAULT NULL,
-    `price` float unsigned DEFAULT NULL,
+    `price` float(7,2) unsigned DEFAULT NULL,
     `stock` int(11) unsigned DEFAULT NULL,
     `related` int(11) unsigned DEFAULT NULL,
     `color` varchar(255) DEFAULT NULL,
