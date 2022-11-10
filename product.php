@@ -12,6 +12,7 @@ try {
     $product = new Product();
     $productService = new ProductService();
     $product = $productService->getProduct($_GET['id'], $product);
+    $product['price'] = number_format($product['price'],2,'.','');
     $data = [
         "message" => "Successfully retrieved products",
         "data" => $product
