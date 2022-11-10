@@ -42,9 +42,10 @@ class ProductService
         $fullArray = $productsObj->getProducts();
 
         $finalArray = array_map(function($product) {
+
             return [
                 "id" => $product->getId(),
-                "price" => $product->getPrice(),
+                "price" => number_format($product->getPrice(),2,'.',''),
                 "stock" => $product->getStock(),
                 "color" => $product->getColor()
             ];
