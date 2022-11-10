@@ -18,7 +18,7 @@ if (!isset($_GET['id']) || !ProductValidator::validateProduct($_GET['id'], $prod
     http_response_code(400);
 
     $data = [
-        "message" => "Invalid category id",
+        "message" => "Invalid product id",
         "data" => []
     ];
 
