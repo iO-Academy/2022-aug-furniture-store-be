@@ -38,7 +38,7 @@ To use this app you will require the following dependencies
 ### 3.2 Frontend
 This backend is to be used in conjunction with an existing front-end. If you wish to use this, navigate to
 `https://github.com/iO-Academy/furniture-store-fe` and follow the instructions.
-The repo contains six branches, to use the front-end with this API you need to checkout to branch `story-3`.
+The repo contains six branches, to use the front-end with this API you need to checkout to branch `story-4`.
 
 ### 3.3 Database
 
